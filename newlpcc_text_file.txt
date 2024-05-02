@@ -629,7 +629,11 @@ public class Main {
 7) EXPRESSION LEX  (arithmetic expression using YACC specification)
 
 *********************************************************************************************************************************************************
-
+command : 
+gedit fn.y
+yacc fn.y
+gcc y.tab.c -w
+./a.out
 
 %{
 #include <stdio.h>
@@ -702,9 +706,12 @@ printf("\nEnter Any Arithmetic Expression :");
 8) UPPERCASE LOWERCASE LEX AND YACC
 
 *********************************************************************************************************************************************************
-
-
-
+command :
+nano fn.y
+nano fn.l
+lex fn.l
+yacc -d fn.y
+gcc lex.yy.c y.tab.c -o fn -ll
 
 Converter.y file:
 
@@ -764,6 +771,11 @@ int yywrap() {
 9) PARTS OF SPEECH 
 
 *********************************************************************************************************************************************************
+command  :
+nano fn.l
+lex fn.l
+gcc lex.yy.c -o fn -lfl
+./lexer
 
 
 Lexer8a.l file:
@@ -804,7 +816,12 @@ int main(void) {
 10) 9.Write a program using LEX Tool, to implement a lexical analyzer for given C programming language without Symbol table.
 
 *********************************************************************************************************************************************************
-
+command :
+nano fn.l
+lex fn.l
+gcc lex.yy.c -o fn -lfl
+lex fn.l
+./fn
 
 %{
 #include<stdio.h>
@@ -956,6 +973,14 @@ int main(void) {
 11)  .Write a program to evaluate a given built-in functions using YACC specification.
                                   INPUT : u= sin(12)+cos(12)
 *********************************************************************************************************************************************************
+
+command :
+gedit filename.l
+gedit filename.y
+lex filname.l
+yacc -d filname.y
+gcc lex.yy.c y.tab.h -lm
+./a.out
 
 program.l :
 
